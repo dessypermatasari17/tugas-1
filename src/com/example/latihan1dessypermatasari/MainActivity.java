@@ -1,6 +1,7 @@
 package com.example.latihan1dessypermatasari;
 
 import android.os.Bundle;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
@@ -14,6 +15,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -23,11 +25,13 @@ import android.app.Activity;
 import android.content.Intent;
 
 
+
 public class MainActivity extends Activity {
 	
 	private String TAG = MainActivity.class.getSimpleName();
     private ProgressDialog pDialog;
     private ListView lv;
+    private Button btn;
     
     
  // URL to get contacts JSON
@@ -44,25 +48,16 @@ public class MainActivity extends Activity {
         contactList = new ArrayList<HashMap<String, String>>();
         
         lv = (ListView) findViewById(R.id.list);
+        btn = (Button) findViewById(R.id.btn);
+       
  
-        new GetContacts().execute();
-        lv.setOnItemClickListener(new OnItemClickListener() {
+       new GetContacts().execute();
+        btn.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+			public void onClick(View v) {
 				// TODO Auto-generated method stub;
 				//Toast.makeText(MainActivity.this, "Tested!", Toast.LENGTH_SHORT).show();
-				HashMap<String, String> hm = contactList.get(arg2);
-				
-				Intent intent= new Intent(MainActivity.this, DetailContact.class);
-				intent.putExtra("id",hm.get ("id"));
-				intent.putExtra("name",hm.get ("name"));
-				intent.putExtra("email",hm.get ("email"));
-				intent.putExtra("phone",hm.get ("phone"));
-				intent.putExtra("address",hm.get ("address"));
-				intent.putExtra("dob",hm.get ("dob"));
-				
-				
+				Intent intent =new Intent(MainActivity.this, TambahKontak.class);
 				startActivity(intent);
 			}
 		});
@@ -188,5 +183,11 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    
+  
+   
+   public void OnResume(){
+	   super.onResume();
+	   new GetContacts().execute();
+   }
+   
 }

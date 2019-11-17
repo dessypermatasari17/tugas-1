@@ -1,11 +1,11 @@
 package com.example.latihan1dessypermatasari;
 
 import java.io.BufferedInputStream;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -38,6 +38,36 @@ private static final String TAG = HttpHandler.class.getSimpleName();
         }
         return response;
     }
+    public String makePostRequest(String reqUrl, String params){
+    	String response = null;
+    	try{
+    		URL url =new URL(reqUrl);
+    		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+    		conn.setRequestMethod("POST");
+    		conn.setRequestProperty("Content- Type", "application/json; utf-8");
+    		conn.setRequestProperty("Accept", "application/json");
+    		conn.setDoOutput(true);
+    		
+    		String jsonInputString = params;
+    		OutputStream os = conn.getOutputStream();
+    		os.write(jsonInputString.getBytes("utf-8"));
+    		os.close();
+    		
+    		InputStream in  = new BufferedInputStream(conn.getInputStream());
+    		response = convertStreamToString(in);
+    	}catch (MalformedURLException e) {
+            Log.e(TAG, "MalformedURLException: " + e.getMessage());
+        } catch (ProtocolException e) {
+            Log.e(TAG, "ProtocolException: " + e.getMessage());
+        } catch (IOException e) {
+            Log.e(TAG, "IOException: " + e.getMessage());
+        } catch (Exception e) {
+            Log.e(TAG, "Exception: " + e.getMessage());
+        }
+        return response;
+    
+    	}
+    
  
     private String convertStreamToString(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
@@ -59,6 +89,7 @@ private static final String TAG = HttpHandler.class.getSimpleName();
         }
         return sb.toString();
     }
+    
 }
 
 
