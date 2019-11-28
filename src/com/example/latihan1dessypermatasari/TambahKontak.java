@@ -3,11 +3,20 @@ package com.example.latihan1dessypermatasari;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+<<<<<<< HEAD
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+=======
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+>>>>>>> d5179071590cf082258999beefc5356e333b0211
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,10 +63,14 @@ public class TambahKontak extends Activity {
 	private View.OnClickListener simpankontakClick = new View.OnClickListener () {
 		@Override
 		public void onClick(View v) {
+<<<<<<< HEAD
 			Intent intent=new Intent(TambahKontak.this,MainActivity.class);
 			new SaveKontak().execute();
 			TambahKontak.this.finish();
 			startActivity(intent);
+=======
+			new SaveKontak().execute();
+>>>>>>> d5179071590cf082258999beefc5356e333b0211
 		}
 	};
 	 private class SaveKontak extends AsyncTask<Void, Void, Void> {
@@ -143,5 +156,9 @@ public class TambahKontak extends Activity {
 	 }
 }
 	       
+<<<<<<< HEAD
 
 
+=======
+	        	 
+>>>>>>> d5179071590cf082258999beefc5356e333b0211

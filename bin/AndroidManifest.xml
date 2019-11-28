@@ -27,7 +27,11 @@
         </activity>
         
         <activity
+<<<<<<< HEAD
             android:name="com.example.latihan1dessypermatasari.ContactDetailTab"
+=======
+            android:name="com.example.latihan1dessypermatasari.TambahKontak"
+>>>>>>> d5179071590cf082258999beefc5356e333b0211
             android:label="@string/app_name" >
         </activity>
     </application>

@@ -1,7 +1,6 @@
 package com.example.latihan1dessypermatasari;
 
 import java.io.BufferedInputStream;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,7 +38,10 @@ private static final String TAG = HttpHandler.class.getSimpleName();
         }
         return response;
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> d5179071590cf082258999beefc5356e333b0211
     public String makePostRequest(String reqUrl, String params){
     	String response = null;
     	try{
@@ -69,6 +71,10 @@ private static final String TAG = HttpHandler.class.getSimpleName();
         return response;
     
     	}
+<<<<<<< HEAD
+=======
+    
+>>>>>>> d5179071590cf082258999beefc5356e333b0211
  
     private String convertStreamToString(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
@@ -90,6 +96,7 @@ private static final String TAG = HttpHandler.class.getSimpleName();
         }
         return sb.toString();
     }
+    
 }
 
 

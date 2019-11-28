@@ -1,6 +1,7 @@
 package com.example.latihan1dessypermatasari;
 
 import android.os.Bundle;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
@@ -24,13 +25,17 @@ import android.app.Activity;
 import android.content.Intent;
 
 
+
 public class MainActivity extends Activity {
 	
 	private String TAG = MainActivity.class.getSimpleName();
     private ProgressDialog pDialog;
     private ListView lv;
     private Button btn;
+<<<<<<< HEAD
     
+=======
+>>>>>>> d5179071590cf082258999beefc5356e333b0211
     
     
  // URL to get contacts JSON
@@ -47,18 +52,26 @@ public class MainActivity extends Activity {
         contactList = new ArrayList<HashMap<String, String>>();
         
         lv = (ListView) findViewById(R.id.list);
+<<<<<<< HEAD
         btn =(Button) findViewById(R.id.btn);
+=======
+        btn = (Button) findViewById(R.id.btn);
+       
+>>>>>>> d5179071590cf082258999beefc5356e333b0211
  
-        new GetContacts().execute();
-        lv.setOnItemClickListener(new OnItemClickListener() {
+       new GetContacts().execute();
+        btn.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+			public void onClick(View v) {
 				// TODO Auto-generated method stub;
 				//Toast.makeText(MainActivity.this, "Tested!", Toast.LENGTH_SHORT).show();
+<<<<<<< HEAD
 				HashMap<String, String> hm = contactList.get(arg2);
 				
 				Intent intent= new Intent(MainActivity.this, ContactDetailTab.class);
+=======
+				Intent intent =new Intent(MainActivity.this, TambahKontak.class);
+>>>>>>> d5179071590cf082258999beefc5356e333b0211
 				startActivity(intent);
 			}
 		});
@@ -184,5 +197,11 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    
+  
+   
+   public void OnResume(){
+	   super.onResume();
+	   new GetContacts().execute();
+   }
+   
 }

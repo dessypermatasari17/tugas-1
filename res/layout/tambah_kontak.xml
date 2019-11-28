@@ -8,6 +8,10 @@
        android:id="@+id/txtview"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+<<<<<<< HEAD
+=======
+       android:textSize="20sp"
+>>>>>>> d5179071590cf082258999beefc5356e333b0211
        android:text="FORM TAMBAH KONTAK BARU"
        />
     
