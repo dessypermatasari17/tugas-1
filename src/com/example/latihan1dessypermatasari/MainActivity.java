@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -28,6 +29,8 @@ public class MainActivity extends Activity {
 	private String TAG = MainActivity.class.getSimpleName();
     private ProgressDialog pDialog;
     private ListView lv;
+    private Button btn;
+    
     
     
  // URL to get contacts JSON
@@ -44,6 +47,7 @@ public class MainActivity extends Activity {
         contactList = new ArrayList<HashMap<String, String>>();
         
         lv = (ListView) findViewById(R.id.list);
+        btn =(Button) findViewById(R.id.btn);
  
         new GetContacts().execute();
         lv.setOnItemClickListener(new OnItemClickListener() {
@@ -54,15 +58,7 @@ public class MainActivity extends Activity {
 				//Toast.makeText(MainActivity.this, "Tested!", Toast.LENGTH_SHORT).show();
 				HashMap<String, String> hm = contactList.get(arg2);
 				
-				Intent intent= new Intent(MainActivity.this, DetailContact.class);
-				intent.putExtra("id",hm.get ("id"));
-				intent.putExtra("name",hm.get ("name"));
-				intent.putExtra("email",hm.get ("email"));
-				intent.putExtra("phone",hm.get ("phone"));
-				intent.putExtra("address",hm.get ("address"));
-				intent.putExtra("dob",hm.get ("dob"));
-				
-				
+				Intent intent= new Intent(MainActivity.this, ContactDetailTab.class);
 				startActivity(intent);
 			}
 		});
